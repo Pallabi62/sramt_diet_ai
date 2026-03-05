@@ -1,0 +1,1048 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="home-3d-wrapper">
+    <!-- Animated Classical Background -->
+    <div class="classical-bg">
+        <div class="marble-columns"></div>
+        <div class="golden-particles"></div>
+        <div class="floating-foods">
+            <div class="food-item" style="--i:1">🥗</div>
+            <div class="food-item" style="--i:2">🍎</div>
+            <div class="food-item" style="--i:3">🥑</div>
+            <div class="food-item" style="--i:4">🍗</div>
+            <div class="food-item" style="--i:5">🥦</div>
+            <div class="food-item" style="--i:6">🍳</div>
+        </div>
+    </div>
+
+    <!-- Hero Section with Classical 3D Elements -->
+    <section class="hero-3d-section">
+        <div class="hero-container">
+            <!-- Left Content -->
+            <div class="hero-content" data-aos="fade-right">
+                <div class="classical-badge">
+                    <span class="badge-icon">🏛️</span>
+                    <span class="badge-text">AI-Powered Nutrition</span>
+                </div>
+                
+                <h1 class="hero-title classical-title">
+                    <span class="title-line"></span>
+                    <span class="title-text">Your Personal AI Diet Planner</span>
+                    <span class="title-line"></span>
+                </h1>
+                
+                <p class="hero-description">
+                    Achieve your health goals with personalized meal plans and smart food tracking.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="{{ url_for('register') }}" class="cta-button primary">
+                        <span class="button-text">Get Started</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="button-glow"></span>
+                    </a>
+                    <a href="{{ url_for('about') }}" class="cta-button secondary">
+                        <span class="button-text">Learn More</span>
+                        <i class="fas fa-scroll"></i>
+                    </a>
+                </div>
+
+                <!-- Stats with Classical Design -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Meals Analyzed</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">4.9</span>
+                            <span class="stat-label">User Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right 3D Model -->
+            <div class="hero-3d-model" data-aos="fade-left">
+                <div class="model-container">
+                    <!-- Classical Column Structure -->
+                    <div class="classical-column">
+                        <div class="column-capital">
+                            <i class="fas fa-utensil-spoon"></i>
+                        </div>
+                        <div class="column-shaft">
+                            <div class="rotating-cube">
+                                <div class="cube-face front">🥗</div>
+                                <div class="cube-face back">🍎</div>
+                                <div class="cube-face right">🥑</div>
+                                <div class="cube-face left">🍗</div>
+                                <div class="cube-face top">🥦</div>
+                                <div class="cube-face bottom">🍳</div>
+                            </div>
+                        </div>
+                        <div class="column-base">
+                            <div class="base-ring"></div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Icons -->
+                    <div class="floating-icons">
+                        <div class="icon-3d icon1">🍎</div>
+                        <div class="icon-3d icon2">🥗</div>
+                        <div class="icon-3d icon3">🥑</div>
+                        <div class="icon-3d icon4">🍗</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section with Classical Arches -->
+    <section class="features-3d-section" data-aos="fade-up">
+        <h2 class="section-title classical-title">
+            <span class="title-line"></span>
+            <span class="title-text">Why Choose SmartDiet?</span>
+            <span class="title-line"></span>
+        </h2>
+
+        <div class="features-grid">
+            <!-- Feature 1 - Classical Arch -->
+            <div class="feature-arch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="arch-top">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="arch-columns">
+                    <div class="arch-column"></div>
+                    <div class="arch-column"></div>
+                </div>
+                <div class="arch-content">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Personalized Plans</h3>
+                    <p>Tailored to your body type, goals, and lifestyle.</p>
+                    <div class="feature-decoration"></div>
+                </div>
+            </div>
+
+            <!-- Feature 2 - Classical Arch -->
+            <div class="feature-arch" data-aos="zoom-in" data-aos-delay="200">
+                <div class="arch-top">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="arch-columns">
+                    <div class="arch-column"></div>
+                    <div class="arch-column"></div>
+                </div>
+                <div class="arch-content">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Food Scanner</h3>
+                    <p>Snap a photo to estimate calories instantly.</p>
+                    <div class="feature-decoration"></div>
+                </div>
+            </div>
+
+            <!-- Feature 3 - Classical Arch -->
+            <div class="feature-arch" data-aos="zoom-in" data-aos-delay="300">
+                <div class="arch-top">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="arch-columns">
+                    <div class="arch-column"></div>
+                    <div class="arch-column"></div>
+                </div>
+                <div class="arch-content">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Progress Tracking</h3>
+                    <p>Monitor your weight and calorie intake.</p>
+                    <div class="feature-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section with Classical Design -->
+    <section class="testimonials-3d-section" data-aos="fade-up">
+        <h2 class="section-title classical-title">
+            <span class="title-line"></span>
+            <span class="title-text">What Our Users Say</span>
+            <span class="title-line"></span>
+        </h2>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card classical-card" data-aos="fade-right">
+                <div class="card-inner">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "This app transformed my relationship with food. The AI scanner is incredibly accurate!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Lost 20 lbs in 3 months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card classical-card" data-aos="fade-up">
+                <div class="card-inner">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The personalized meal plans helped me reach my fitness goals faster than ever."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Mike Thompson</h4>
+                            <p>Fitness Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card classical-card" data-aos="fade-left">
+                <div class="card-inner">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Finally, an app that makes nutrition simple and enjoyable. Highly recommended!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Emily Davis</h4>
+                            <p>Health Coach</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section with Classical Temple Design -->
+    <section class="cta-3d-section" data-aos="fade-up">
+        <div class="temple-arch">
+            <div class="arch-way">
+                <div class="arch-left"></div>
+                <div class="arch-right"></div>
+            </div>
+            <div class="temple-content">
+                <h2>Start Your Journey Today</h2>
+                <p>Join thousands of users who have transformed their health with SmartDiet</p>
+                <a href="{{ url_for('register') }}" class="cta-button large">
+                    <span>Create Free Account</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+/* Home 3D Wrapper */
+.home-3d-wrapper {
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0f0f1f 100%);
+}
+
+/* Classical Background */
+.classical-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.marble-columns {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(90deg, 
+            transparent 0px, 
+            transparent 100px,
+            rgba(212, 175, 55, 0.03) 100px,
+            rgba(212, 175, 55, 0.03) 102px),
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.02) 0%, transparent 30%);
+}
+
+.golden-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 90% 70%, rgba(108, 92, 231, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: particleFloat 20s linear infinite;
+}
+
+.floating-foods {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.food-item {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.1;
+    filter: blur(2px);
+    animation: foodFloat 15s infinite ease-in-out;
+}
+
+.food-item:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.food-item:nth-child(2) { top: 20%; right: 10%; animation-delay: -2s; }
+.food-item:nth-child(3) { bottom: 15%; left: 15%; animation-delay: -4s; }
+.food-item:nth-child(4) { bottom: 25%; right: 5%; animation-delay: -6s; }
+.food-item:nth-child(5) { top: 40%; left: 20%; animation-delay: -8s; }
+.food-item:nth-child(6) { bottom: 40%; right: 20%; animation-delay: -10s; }
+
+/* Hero Section */
+.hero-3d-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Hero Content */
+.hero-content {
+    padding: 20px;
+}
+
+.classical-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 8px 20px;
+    border-radius: 40px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.badge-icon {
+    font-size: 1.2rem;
+}
+
+.badge-text {
+    color: #d4af37;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title-line {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d4af37, #6c5ce7, transparent);
+}
+
+.title-text {
+    background: linear-gradient(135deg, #fff, #d4af37, #6c5ce7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.hero-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+/* CTA Buttons */
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    position: relative;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+    background: linear-gradient(135deg, #d4af37, #6c5ce7);
+    color: white;
+    box-shadow: 0 20px 30px -10px rgba(212, 175, 55, 0.3);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    color: white;
+}
+
+.cta-button.large {
+    padding: 18px 45px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #d4af37, #6c5ce7);
+    color: white;
+    border: none;
+}
+
+.button-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 30px 40px -10px #d4af37;
+}
+
+.cta-button:hover .button-glow {
+    opacity: 0.3;
+    animation: rotate 4s linear infinite;
+}
+
+.cta-button:hover i {
+    transform: translateX(5px);
+}
+
+.cta-button i {
+    transition: transform 0.3s ease;
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 10px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(108, 92, 231, 0.2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4af37;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+}
+
+/* 3D Model */
+.hero-3d-model {
+    perspective: 2000px;
+}
+
+.model-container {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Classical Column */
+.classical-column {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    transform-style: preserve-3d;
+    animation: columnFloat 6s ease-in-out infinite;
+}
+
+.column-capital {
+    height: 60px;
+    background: linear-gradient(135deg, #d4af37, #6c5ce7);
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.column-shaft {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-width: 0 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.column-base {
+    height: 40px;
+    background: linear-gradient(135deg, #d4af37, #6c5ce7);
+    border-radius: 0 0 20px 20px;
+    opacity: 0.7;
+    position: relative;
+}
+
+.base-ring {
+    position: absolute;
+    top: -10px;
+    left: 10%;
+    width: 80%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    filter: blur(5px);
+}
+
+/* Rotating Cube */
+.rotating-cube {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate3d 20s infinite linear;
+}
+
+.cube-face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.front { transform: translateZ(75px); }
+.back { transform: rotateY(180deg) translateZ(75px); }
+.right { transform: rotateY(90deg) translateZ(75px); }
+.left { transform: rotateY(-90deg) translateZ(75px); }
+.top { transform: rotateX(90deg) translateZ(75px); }
+.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+/* Floating Icons */
+.floating-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.icon-3d {
+    position: absolute;
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+    animation: iconFloat 8s infinite ease-in-out;
+}
+
+.icon1 { top: 10%; right: 10%; animation-delay: 0s; }
+.icon2 { bottom: 20%; left: 10%; animation-delay: -2s; }
+.icon3 { top: 30%; left: 20%; animation-delay: -4s; }
+.icon4 { bottom: 30%; right: 15%; animation-delay: -6s; }
+
+/* Features Section */
+.features-3d-section {
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-title .title-text {
+    font-size: 2.5rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Feature Arch */
+.feature-arch {
+    position: relative;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 100px 100px 30px 30px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-arch:hover {
+    transform: translateY(-20px);
+    border-color: #d4af37;
+    box-shadow: 0 30px 50px rgba(212, 175, 55, 0.2);
+}
+
+.arch-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(135deg, #d4af37, #6c5ce7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+}
+
+.arch-columns {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.arch-column {
+    width: 20px;
+    height: 60px;
+    background: linear-gradient(135deg, #d4af37, #6c5ce7);
+    opacity: 0.3;
+    border-radius: 10px 10px 0 0;
+}
+
+.arch-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 60px;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(108, 92, 231, 0.2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #d4af37;
+    margin-bottom: 20px;
+    animation: floatIcon 3s infinite ease-in-out;
+}
+
+.arch-content h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.arch-content p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.feature-decoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: repeating-linear-gradient(45deg, 
+        rgba(212, 175, 55, 0.1) 0px,
+        rgba(212, 175, 55, 0.1) 10px,
+        transparent 10px,
+        transparent 20px);
+}
+
+/* Testimonials Section */
+.testimonials-3d-section {
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 30px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    border-color: #d4af37;
+    box-shadow: 0 30px 50px rgba(212, 175, 55, 0.2);
+}
+
+.quote-icon {
+    font-size: 3rem;
+    color: rgba(212, 175, 55, 0.2);
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #d4af37, #6c5ce7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.author-info h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.author-info p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-3d-section {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.temple-arch {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 200px 200px 30px 30px;
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.arch-way {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arch-left,
+.arch-right {
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(135deg, #d4af37, #6c5ce7);
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+    opacity: 0.3;
+}
+
+.arch-left { transform: translateX(-20px); }
+.arch-right { transform: translateX(20px); }
+
+.temple-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #fff, #d4af37);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.temple-content p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* Animations */
+@keyframes particleFloat {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+@keyframes foodFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(-50px) rotate(180deg) scale(1.2);
+    }
+}
+
+@keyframes columnFloat {
+    0%, 100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotateY(10deg);
+    }
+}
+
+@keyframes rotate3d {
+    0% { transform: rotateX(0) rotateY(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-content {
+        order: 2;
+    }
+    
+    .hero-3d-model {
+        order: 1;
+        margin-bottom: 40px;
+    }
+    
+    .hero-description {
+        margin: 0 auto 30px;
+    }
+    
+    .hero-cta {
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-item {
+        width: 100%;
+    }
+    
+    .features-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .temple-arch {
+        padding: 40px 20px;
+    }
+    
+    .temple-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+    }
+    
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .section-title .title-text {
+        font-size: 2rem;
+    }
+}
+</style>
+{% endblock %}

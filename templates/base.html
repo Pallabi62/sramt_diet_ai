@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDiet - AI Powered Nutrition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Quick fixes for alignment */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #6c5ce7, #00cec9);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #a8e6cf);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6c5ce7, #00cec9);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('index') }}">
+                <span class="logo-icon">🥗</span>
+                <span class="logo-text">Smart<span style="color: #00cec9;">Diet</span></span>
+            </a>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About</a></li>
+            {% if session.get('user_id') %}
+                <li><a href="{{ url_for('dashboard') }}"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                <li><a href="{{ url_for('scanner') }}"><i class="fas fa-camera"></i> Scanner</a></li>
+                <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}" class="nav-button">Get Started <i class="fas fa-arrow-right"></i></a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages" style="position: fixed; top: 80px; right: 20px; z-index: 1001;">
+                    {% for category, message in messages %}
+                        <div class="flash-message flash-{{ category }}" style="background: rgba(0,0,0,0.8); color: white; padding: 1rem; border-radius: 10px; margin-bottom: 10px;">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); margin-top: 4rem;">
+        <p>&copy; 2024 SmartDiet. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+        
+        // Flash message auto-dismiss
+        setTimeout(() => {
+            document.querySelectorAll('.flash-message').forEach(msg => {
+                msg.style.display = 'none';
+            });
+        }, 4000);
+    </script>
+</body>
+</html>
