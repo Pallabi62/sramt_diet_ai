@@ -151,10 +151,14 @@ def scanner():
     
     if request.method == 'POST':
         if 'file' not in request.files:
+            if request.headers.get('Accept') == 'application/json':
+                return jsonify({'error': 'No file selected'}), 400
             flash('No file selected', 'danger')
             return redirect(request.url)
         file = request.files['file']
         if file.filename == '':
+            if request.headers.get('Accept') == 'application/json':
+                return jsonify({'error': 'No file selected'}), 400
             flash('No file selected', 'danger')
             return redirect(request.url)
         if file and allowed_file(file.filename):
@@ -203,7 +207,15 @@ def scanner():
                 result = random.choice(mock_foods)
             
             flash('Image processed successfully!', 'success')
+
+            # If the request accepts JSON, return JSON instead of rendering the template
+            if request.headers.get('Accept') == 'application/json':
+                import time
+                time.sleep(1)  # Simulate analysis delay
+                return jsonify({'result': result, 'image_url': image_url})
         else:
+            if request.headers.get('Accept') == 'application/json':
+                return jsonify({'error': 'Invalid file type. Please upload an image.'}), 400
             flash('Invalid file type. Please upload an image.', 'danger')
             
     return render_template('scanner.html', result=result, image_url=image_url)
