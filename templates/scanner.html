@@ -92,8 +92,7 @@
         </div>
 
         <!-- Results Section with 3D Elements -->
-        {% if result %}
-        <div class="results-3d-section" data-aos="fade-up" data-aos-delay="200">
+        <div class="results-3d-section" id="resultsSection" data-aos="fade-up" data-aos-delay="200" style="display: none;">
             <div class="results-header">
                 <h2 class="section-title">
                     <i class="fas fa-flask"></i>
@@ -109,18 +108,15 @@
                 <!-- Image Card with 3D Flip -->
                 <div class="image-3d-card">
                     <div class="image-card-inner">
-                        {% if image_url %}
-                        <img src="{{ image_url }}" alt="Uploaded Food" class="result-image">
-                        {% else %}
-                        <div class="no-image-3d">
+                        <img src="" alt="Uploaded Food" class="result-image" id="resultImage" style="display: none;">
+                        <div class="no-image-3d" id="noImage">
                             <i class="fas fa-image"></i>
                             <p>No image available</p>
                         </div>
-                        {% endif %}
-                    </div>
-                    <div class="image-card-back">
-                        <i class="fas fa-utensils"></i>
-                        <span>Uploaded Food</span>
+                        <div class="image-card-back">
+                            <i class="fas fa-utensils"></i>
+                            <span>Uploaded Food</span>
+                        </div>
                     </div>
                 </div>
 
@@ -129,7 +125,7 @@
                     <!-- Food Name with Icon -->
                     <div class="food-title-3d">
                         <i class="fas fa-apple-alt"></i>
-                        <h3>{{ result.name }}</h3>
+                        <h3 id="resultName"></h3>
                     </div>
 
                     <!-- Calories Circle -->
@@ -152,11 +148,11 @@
                             <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
                             <circle class="progress-ring" cx="60" cy="60" r="50" fill="none" 
                                     stroke="url(#circleGradient)" stroke-width="8" 
-                                    stroke-dasharray="314" stroke-dashoffset="{{ 314 - (314 * result.calories / 800) }}"
+                                    stroke-dasharray="314" stroke-dashoffset="314"
                                     stroke-linecap="round" filter="url(#glow)"/>
                             
                             <text x="60" y="60" text-anchor="middle" dy="0.3em" fill="white" font-size="24" font-weight="bold">
-                                {{ result.calories }}
+                                <tspan id="resultCalories">0</tspan>
                                 <tspan x="60" y="80" fill="rgba(255,255,255,0.7)" font-size="12">kcal</tspan>
                             </text>
                         </svg>
@@ -170,10 +166,10 @@
                             </div>
                             <div class="macro-info-3d">
                                 <span class="macro-label">Protein</span>
-                                <span class="macro-value">{{ result.protein }}g</span>
+                                <span class="macro-value" id="resultProtein">0g</span>
                             </div>
                             <div class="macro-bar-3d">
-                                <div class="bar-fill" style="width: {{ (result.protein / 50) * 100 }}%"></div>
+                                <div class="bar-fill" id="proteinBar" style="width: 0%"></div>
                             </div>
                         </div>
 
@@ -183,10 +179,10 @@
                             </div>
                             <div class="macro-info-3d">
                                 <span class="macro-label">Carbs</span>
-                                <span class="macro-value">{{ result.carbs }}g</span>
+                                <span class="macro-value" id="resultCarbs">0g</span>
                             </div>
                             <div class="macro-bar-3d">
-                                <div class="bar-fill" style="width: {{ (result.carbs / 70) * 100 }}%"></div>
+                                <div class="bar-fill" id="carbsBar" style="width: 0%"></div>
                             </div>
                         </div>
 
@@ -196,10 +192,10 @@
                             </div>
                             <div class="macro-info-3d">
                                 <span class="macro-label">Fat</span>
-                                <span class="macro-value">{{ result.fat }}g</span>
+                                <span class="macro-value" id="resultFat">0g</span>
                             </div>
                             <div class="macro-bar-3d">
-                                <div class="bar-fill" style="width: {{ (result.fat / 30) * 100 }}%"></div>
+                                <div class="bar-fill" id="fatBar" style="width: 0%"></div>
                             </div>
                         </div>
                     </div>
@@ -212,7 +208,6 @@
                 </div>
             </div>
         </div>
-        {% endif %}
     </div>
 </div>
 
@@ -1093,8 +1088,71 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Form submission
     document.getElementById('uploadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
         if (!analyzeBtn.disabled) {
+            const originalBtnContent = analyzeBtn.innerHTML;
             analyzeBtn.innerHTML = '<span class="btn-text">Analyzing...</span> <i class="fas fa-spinner fa-spin"></i>';
+            analyzeBtn.disabled = true;
+
+            const formData = new FormData(this);
+
+            fetch('/scanner', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else if (data.result) {
+                    // Update DOM with result
+                    document.getElementById('resultName').textContent = data.result.name;
+                    document.getElementById('resultCalories').textContent = data.result.calories;
+                    document.getElementById('resultProtein').textContent = data.result.protein + 'g';
+                    document.getElementById('resultCarbs').textContent = data.result.carbs + 'g';
+                    document.getElementById('resultFat').textContent = data.result.fat + 'g';
+
+                    document.getElementById('proteinBar').style.width = ((data.result.protein / 50) * 100) + '%';
+                    document.getElementById('carbsBar').style.width = ((data.result.carbs / 70) * 100) + '%';
+                    document.getElementById('fatBar').style.width = ((data.result.fat / 30) * 100) + '%';
+
+                    // Update progress ring
+                    const progressRing = document.querySelector('.progress-ring');
+                    if (progressRing) {
+                        progressRing.style.strokeDashoffset = 314 - (314 * data.result.calories / 800);
+                    }
+
+                    // Update image
+                    const resultImage = document.getElementById('resultImage');
+                    const noImage = document.getElementById('noImage');
+                    if (data.image_url) {
+                        resultImage.src = data.image_url;
+                        resultImage.style.display = 'block';
+                        noImage.style.display = 'none';
+                    } else {
+                        resultImage.style.display = 'none';
+                        noImage.style.display = 'flex';
+                    }
+
+                    // Show results section
+                    document.getElementById('resultsSection').style.display = 'block';
+
+                    // Smooth scroll to results
+                    document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during analysis.');
+            })
+            .finally(() => {
+                analyzeBtn.innerHTML = originalBtnContent;
+                analyzeBtn.disabled = false;
+            });
         }
     });
 });
@@ -1104,6 +1162,7 @@ function clearPreview() {
     document.getElementById('previewSection').style.display = 'none';
     document.getElementById('fileInput').value = '';
     document.getElementById('analyzeBtn').disabled = true;
+    document.getElementById('resultsSection').style.display = 'none';
 }
 </script>
 {% endblock %}
